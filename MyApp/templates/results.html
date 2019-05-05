@@ -1,0 +1,81 @@
+{% extends "bootstrap/base.html" %}
+{% block content %}
+
+
+
+<div class="container">
+  <div class="jumbotron" style="background-color:#1daeff !important;">
+    <h2 style="color:#fff;">Player Recommender</h2>      
+    <p style="color:#fff;">Using Machine Learning to recommend players</p>
+  </div>
+          
+</div>
+
+<!-- <div class="card text-center"> -->
+<center>
+
+  <div class="card-header">
+    Results
+  </div>
+<div class="card", align="center">
+<p><h4><b>{{ name }}</b></h4></p>
+	{% for img, club, pos, overall in res%}
+	<img src="{{ url_for('static', filename = img) }}" alt="Avatar", style="width: 20%">
+	<p>Club : {{club}} </p>
+	<p>Position: {{pos}}</p>
+	<p>Overall: {{overall}}</p>
+	{% endfor %}
+</div>
+</center>
+
+
+<!-- Main ML Prediction Display Here -->
+<p>Recommended players which are similar to {{name}}:</p>
+
+<div class = "row" style="background-color: lightgray;">
+            <div class = "column">
+                    {% for name, image, pred_club, pred_pos, pred_oa in pred_imgs %}
+                        <div class="card" style="width:305px;float:left;">
+                            <div class="card-body" style="background-color:lightcyan;">
+                            	<div align="center">
+                            		<p> {{name}}</p>
+	                            	<p> Club : {{pred_club}} </p>
+									<p> Position: {{pred_pos}}</p>
+									<p> Overall: {{pred_oa}}</p>
+                            	</div>
+                            	
+							 <img class="card-img-top" src="{{ url_for('static', filename = image) }}" alt="Avatar", style="width: 50%">
+                            	
+                      		</div>
+						 </div>
+                    {% endfor %}
+            </div>
+        </div>
+
+
+
+<!-- <div class="column">
+   {% for i, j in pred_imgs %}
+    <div class="card">{{i}} <img src="{{ url_for('static', filename = j) }}" alt="Avatar", style="width: 20%"></div>
+    {% endfor %}
+</div> -->
+<!-- Main ML Prediction Display Ends Here -->
+  <!-- <div class="card-footer text-muted">
+</div>
+
+    
+   
+  </div>
+</div> -->
+
+
+
+
+
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet"
+      href="{{url_for('.static', filename='styles.css')}}">
+{% endblock %}

@@ -32,3 +32,6 @@ The home page:
 Predictions:
 
 ![alt text](https://github.com/rmihir96/FIFA_Player_recommender/blob/master/MyApp/predict.PNG)
+
+Drive:
+https://drive.google.com/file/d/1i-MAbRClc_ojEQNB9VJJyD1D8jyM8Rgp/view?usp=drivesdk
